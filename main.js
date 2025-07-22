@@ -332,7 +332,7 @@ var a = require("obsidian"),
 	    try {
 	        const loadedSettings = await this.loadData() || {};
 	        this.settings = Object.assign({}, r, loadedSettings);
-		this.settings.sidebarDelay = isNaN(Number(this.settings.sidebarDelay)) ? r.sidebarDelay : Math.max(2000, Number(this.settings.sidebarDelay));
+		this.settings.sidebarDelay = isNaN(Number(this.settings.sidebarDelay)) ? r.sidebarDelay : Math.max(1000, Number(this.settings.sidebarDelay));
 	        this.settings.sidebarExpandDelay = Math.max(0, Number(this.settings.sidebarExpandDelay) || r.sidebarExpandDelay);
 	        this.settings.leftSideBarPixelTrigger = Math.max(1, Number(this.settings.leftSideBarPixelTrigger) || r.leftSideBarPixelTrigger);
 	        this.settings.rightSideBarPixelTrigger = Math.max(1, Number(this.settings.rightSideBarPixelTrigger) || r.rightSideBarPixelTrigger);
@@ -548,7 +548,7 @@ g = class extends a.PluginSettingTab {
 
         new a.Setting(containerEl)
             .setName("Collapse Delay")
-            .setDesc("Milliseconds before the sidebar closes after the mouse leaves (minimum 2000).")
+            .setDesc("Milliseconds before the sidebar closes after the mouse leaves (minimum 1000).")
             .addText(e => e.setPlaceholder("3000").setValue(this.plugin.settings.sidebarDelay.toString()).onChange(async t => {
                 const s = Number(t);
                 this.plugin.settings.sidebarDelay = (!t || isNaN(s) || s < 0) ? r.sidebarDelay : s;
