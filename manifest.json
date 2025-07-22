@@ -1,0 +1,14 @@
+{
+    "id": "auto-sidebar-flow",
+    "name": "Auto Sidebar Flow",
+    "version": "1.0.0",
+    "minAppVersion": "0.15.0",
+    "description": "Opens Obsidian’s sidebars by hovering near the edges. Enjoy smooth navigation, fixed search functionality, and the option to automatically hide the ribbon along with the left sidebar.",
+    "author": "Mauro Carduz",
+    "authorUrl": "https://github.com/maurocarduz",
+    "fundingUrl": {
+        "Buy Me a Coffee": "https://buymeacoffee.com/maurocarduz",
+        "GitHub Sponsor": "https://github.com/sponsors/maurocarduz"
+    },
+    "isDesktopOnly": true
+}

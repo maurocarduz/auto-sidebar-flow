@@ -1,0 +1,67 @@
+:root {
+    --sidebar-expand-collapse-speed: 250ms;
+    --sidebar-expand-delay: 100ms;
+    --left-sidebar-max-width: 350px;
+    --right-sidebar-max-width: 400px;
+    --ribbon-width: 44px;
+    --layer-menu: 400;
+}
+
+/* Animation speed and size for regular sidebars */
+.workspace-split.mod-horizontal.mod-left-split,
+.workspace-split.mod-horizontal.mod-right-split {
+    transition: width var(--sidebar-expand-collapse-speed) ease, max-width var(--sidebar-expand-collapse-speed) ease !important;
+    max-width: var(--left-sidebar-max-width) !important;
+    width: var(--left-sidebar-max-width);
+}
+
+.workspace-split.mod-horizontal.mod-right-split {
+    max-width: var(--right-sidebar-max-width) !important;
+    width: var(--right-sidebar-max-width);
+}
+
+/* Ensure sidebars appear properly on hover */
+.workspace-split.mod-left-split.is-collapsed:hover,
+.workspace-split.mod-right-split.is-collapsed:hover {
+    transition-delay: var(--sidebar-expand-delay);
+}
+
+/* Prevent sidebars from collapsing when hovering inside them */
+.workspace-split.mod-left-split:not(.is-collapsed),
+.workspace-split.mod-right-split:not(.is-collapsed) {
+    pointer-events: auto;
+}
+
+/* Ensure mouse events are properly captured on sidebars */
+.workspace-split.mod-left-split .workspace-leaf,
+.workspace-split.mod-right-split .workspace-leaf {
+    pointer-events: auto;
+}
+
+
+
+/* Fallback CSS to ensure mouse events are captured in tab headers, uncomment if needed */
+/*
+.workspace-split.mod-left-split .workspace-tab-header-container,
+.workspace-split.mod-right-split .workspace-tab-header-container {
+    pointer-events: auto;
+}
+*/
+
+
+
+/* Implement the JS-CSS combined approach for handling menus */
+.open-sidebar-hover-plugin .menu {
+    z-index: var(--layer-menu);
+}
+
+/* Apply a special class that can be used in JavaScript for menu detection */
+.open-sidebar-hover-plugin .hovered {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+/* Ensure right-click context menus don't cause collapse */
+.open-sidebar-hover-plugin .workspace-split.hovered .menu {
+    pointer-events: auto;
+}
